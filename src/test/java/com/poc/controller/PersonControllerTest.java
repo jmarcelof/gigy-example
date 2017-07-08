@@ -1,4 +1,4 @@
-package com.gigy.controller;
+package com.poc.controller;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -20,8 +20,8 @@ import java.util.List;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.hamcrest.Matchers.*;
 
-import com.gigy.model.Person;
-import com.gigy.repository.PersonRepository;
+import com.poc.model.Person;
+import com.poc.repository.PersonRepository;
 
 @RunWith(SpringRunner.class)
 @WebMvcTest(value = PersonController.class, secure = false)

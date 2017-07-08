@@ -1,4 +1,4 @@
-package com.gigy.config;
+package com.poc.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -30,7 +30,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	@Override
 	public void configure(HttpSecurity http) throws Exception {
-		http.antMatcher("/gigy/**")
+		http.antMatcher("/poc/**")
 				.authorizeRequests().anyRequest().authenticated();
 	}
 

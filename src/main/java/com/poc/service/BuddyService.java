@@ -1,6 +1,6 @@
-package com.gigy.service;
+package com.poc.service;
 
-import com.gigy.model.Person;
+import com.poc.model.Person;
 
 public interface BuddyService {
 	

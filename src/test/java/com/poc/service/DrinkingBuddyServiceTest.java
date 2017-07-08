@@ -1,4 +1,4 @@
-package com.gigy.service;
+package com.poc.service;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -9,8 +9,8 @@ import static org.junit.Assert.assertEquals;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.gigy.model.Person;
-import com.gigy.repository.PersonRepository;
+import com.poc.model.Person;
+import com.poc.repository.PersonRepository;
 
 public class DrinkingBuddyServiceTest {
 	

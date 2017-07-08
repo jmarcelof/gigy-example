@@ -1,10 +1,10 @@
-package com.gigy.service;
+package com.poc.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.gigy.model.Person;
-import com.gigy.repository.PersonRepository;
+import com.poc.model.Person;
+import com.poc.repository.PersonRepository;
 
 @Service
 public class DrinkingBuddyService implements BuddyService {

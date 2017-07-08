@@ -1,4 +1,4 @@
-package com.gigy.controller;
+package com.poc.controller;
 
 import java.util.Collection;
 
@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.gigy.model.Party;
-import com.gigy.repository.PartyRepository;
+import com.poc.model.Party;
+import com.poc.repository.PartyRepository;
 
 @RestController
 @RequestMapping("/parties")
@@ -33,7 +33,7 @@ public class PartyController {
 		if (party != null) {
 			return new ResponseEntity<>(partyRepo.findOne(id), HttpStatus.OK);
 		} else {
-			return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 	}
 
@@ -46,7 +46,7 @@ public class PartyController {
 	public ResponseEntity<Void> deletePartyn(@PathVariable long id) {
 		partyRepo.delete(id);
 
-		return new ResponseEntity<Void>(HttpStatus.OK);
+		return new ResponseEntity<>(HttpStatus.OK);
 	}
 
 }

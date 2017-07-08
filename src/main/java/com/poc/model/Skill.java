@@ -1,4 +1,4 @@
-package com.gigy.model;
+package com.poc.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

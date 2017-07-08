@@ -1,4 +1,4 @@
-package com.gigy.controller;
+package com.poc.controller;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -20,8 +20,8 @@ import java.util.List;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.hamcrest.Matchers.*;
 
-import com.gigy.model.Party;
-import com.gigy.repository.PartyRepository;
+import com.poc.model.Party;
+import com.poc.repository.PartyRepository;
 
 @RunWith(SpringRunner.class)
 @WebMvcTest(value = PartyController.class, secure = false)

@@ -1,4 +1,4 @@
-package com.gigy.controller;
+package com.poc.controller;
 
 import java.security.Principal;
 import java.util.Collection;
@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.gigy.model.Party;
-import com.gigy.model.Person;
-import com.gigy.repository.PersonRepository;
+import com.poc.model.Party;
+import com.poc.model.Person;
+import com.poc.repository.PersonRepository;
 
 @RestController
 @RequestMapping("/people")
@@ -35,7 +35,7 @@ public class PersonController {
 		if (person != null) {
 			return new ResponseEntity<>(personRepo.findOne(id), HttpStatus.OK);
 		} else {
-			return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 	}
 
@@ -50,9 +50,9 @@ public class PersonController {
 		
 		if (currentPerson.getId() == id) {
 			personRepo.delete(id);
-			return new ResponseEntity<Void>(HttpStatus.OK);
+			return new ResponseEntity<>(HttpStatus.OK);
 		} else {
-			return new ResponseEntity<Void>(HttpStatus.UNAUTHORIZED);
+			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
 		}
 	}
 	
@@ -63,7 +63,7 @@ public class PersonController {
 		if (person != null) {
 			return new ResponseEntity<>(person.getParties(), HttpStatus.OK);
 		} else {
-			return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 	}
 

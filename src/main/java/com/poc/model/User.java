@@ -1,4 +1,4 @@
-package com.gigy.model;
+package com.poc.model;
 
 import java.util.ArrayList;
 import java.util.Collection;
