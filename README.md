@@ -14,11 +14,17 @@ mvn spring-boot:run
 curl -X POST --user 'poc:secret' -d 'grant_type=password&username=peter@example.com&password=password' http://localhost:8000/poc/oauth/token
 ```
 
+## Refresh token
+
+```
+curl -X POST --user 'poc:secret' -d 'grant_type=refresh_token&refresh_token=$REFRESH_TOKEN' http://localhost:8000/poc/oauth/token
+```
+
 ## Example commands
 
 Getting all people from the API:
 ```
-curl -i -H "Accept: application/json" -H "Content-Type: application/json" -H "Authorization: Bearer $TOKEN" -X GET http://localhost:8000/poc/people
+curl -i -H "Accept: application/json" -H "Content-Type: application/json" -H "Authorization: Bearer $ACCESS_TOKEN" -X GET http://localhost:8000/poc/people
 ```
 
 ## LICENSE
