@@ -3,6 +3,14 @@ INSERT INTO users (user_id, username, password, enabled) VALUES
 	('2', 'john@example.com', '$2a$10$D4OLKI6yy68crm.3imC9X.P2xqKHs5TloWUcr6z5XdOqnTrAK84ri', true),
 	('3', 'katie@example.com', '$2a$10$D4OLKI6yy68crm.3imC9X.P2xqKHs5TloWUcr6z5XdOqnTrAK84ri', true);
 
+INSERT INTO oauth_client_details
+(client_id, client_secret, scope, authorized_grant_types,
+ web_server_redirect_uri, authorities, access_token_validity,
+ refresh_token_validity, additional_information, autoapprove)
+VALUES
+  ('poc', 'secret', 'read,write', 'password,refresh_token', null, null, 36000, 36000, null, true),
+  ('app', null, 'read,write', 'password,refresh_token', null, null, 36000, 36000, null, true);
+
 INSERT INTO people (person_id, name, age, username) VALUES 
 	(1, 'Peter', 25, 'peter@example.com'),
 	(2, 'John', 30, 'john@example.com'),
