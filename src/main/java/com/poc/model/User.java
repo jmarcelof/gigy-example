@@ -32,7 +32,7 @@ public class User implements UserDetails {
 	private String password;
 	
 	@Column(name = "enabled", nullable = false)
-	private boolean enabled;
+	private boolean enabled = true;
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -72,5 +72,4 @@ public class User implements UserDetails {
 	public String getUsername() {
 		return username;
 	}
-
 }
