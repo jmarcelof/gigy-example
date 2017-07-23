@@ -1,8 +1,8 @@
-INSERT INTO users (user_id, username, password, enabled) VALUES 
-	('1', 'peter@example.com', '$2a$10$D4OLKI6yy68crm.3imC9X.P2xqKHs5TloWUcr6z5XdOqnTrAK84ri', true),
-	('2', 'john@example.com', '$2a$10$D4OLKI6yy68crm.3imC9X.P2xqKHs5TloWUcr6z5XdOqnTrAK84ri', true),
-	('3', 'katie@example.com', '$2a$10$D4OLKI6yy68crm.3imC9X.P2xqKHs5TloWUcr6z5XdOqnTrAK84ri', true),
-	('4', '$2a$10$P2GkxFjc2GUGCFq9JUHgbOlWWBUHN0LzKSFFQZNGPY6eiz.cpQ1tm', '$2a$10$iyHO73XAyI0rT18FKYUX2.gb2jRRQp5T4yU3BFKYmg4qtK1OyiWBm', true);
+INSERT INTO users (user_id, username, password, enabled, role) VALUES
+	('1', 'peter@example.com', '$2a$10$D4OLKI6yy68crm.3imC9X.P2xqKHs5TloWUcr6z5XdOqnTrAK84ri', true, 'ROLE_USER'),
+	('2', 'john@example.com', '$2a$10$D4OLKI6yy68crm.3imC9X.P2xqKHs5TloWUcr6z5XdOqnTrAK84ri', true, 'ROLE_USER'),
+	('3', 'katie@example.com', '$2a$10$D4OLKI6yy68crm.3imC9X.P2xqKHs5TloWUcr6z5XdOqnTrAK84ri', true, 'ROLE_USER'),
+	('4', '$2a$10$P2GkxFjc2GUGCFq9JUHgbOlWWBUHN0LzKSFFQZNGPY6eiz.cpQ1tm', '$2a$10$iyHO73XAyI0rT18FKYUX2.gb2jRRQp5T4yU3BFKYmg4qtK1OyiWBm', true, 'ROLE_SIGNUP');
 
 INSERT INTO oauth_client_details
 (client_id, client_secret, scope, authorized_grant_types,

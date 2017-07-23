@@ -1,8 +1,6 @@
 package com.poc.model;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
+import java.util.*;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,7 +10,9 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.util.StringUtils;
 
 @Entity
 @Table(name = "users")
@@ -34,10 +34,15 @@ public class User implements UserDetails {
 	@Column(name = "enabled", nullable = false)
 	private boolean enabled = true;
 
+	@Column(name = "role", nullable = false)
+	private String role = "ROLE_USER";
+
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
-		
+		Set<SimpleGrantedAuthority> authorities = new HashSet<>();
+		if (!StringUtils.isEmpty(role)) {
+			authorities.add(new SimpleGrantedAuthority(role.toUpperCase()));
+		}
 		return authorities;
 	}
 
