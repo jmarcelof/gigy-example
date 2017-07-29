@@ -20,6 +20,12 @@ curl -X POST --user 'poc:secret' -d 'grant_type=password&username=peter@example.
 curl -X POST --user 'poc:secret' -d 'grant_type=refresh_token&refresh_token=$REFRESH_TOKEN' http://localhost:8000/poc/oauth/token
 ```
 
+## Revoke token
+
+```
+curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -X DELETE http://localhost:8000/poc/oauth/token/$ACCESS_TOKEN
+```
+
 ## Example commands
 
 Getting all people from the API:
