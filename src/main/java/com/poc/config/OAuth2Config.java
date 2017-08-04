@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -62,6 +63,7 @@ public class OAuth2Config {
                 .requestMatchers().antMatchers("/user", "/**")
             .and()
                 .authorizeRequests()
+                    .antMatchers(HttpMethod.GET, "/user").access("hasRole('ROLE_USER')")
                     .antMatchers("/user").access("hasRole('ROLE_SIGNUP')")
                     .antMatchers("/**").access("hasRole('ROLE_USER')");
         }
