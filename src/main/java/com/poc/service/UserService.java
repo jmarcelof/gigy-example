@@ -1,5 +1,6 @@
 package com.poc.service;
 
+import com.poc.DTO.SignUpDTO;
 import com.poc.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -19,8 +20,10 @@ public class UserService implements UserDetailsService {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-    public void save(User user) {
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
+    public void save(SignUpDTO userDTO) {
+        User user = new User();
+        user.setUsername(userDTO.getUsername());
+        user.setPassword(passwordEncoder.encode(userDTO.getPassword()));
         userRepository.save(user);
     }
 

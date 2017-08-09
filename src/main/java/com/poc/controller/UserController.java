@@ -1,5 +1,7 @@
 package com.poc.controller;
 
+import com.poc.DTO.SignUpDTO;
+import com.poc.DTO.UserInfoDTO;
 import com.poc.model.User;
 import com.poc.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,12 +21,12 @@ public class UserController {
     private UserService userService;
 
     @RequestMapping(method = RequestMethod.GET)
-    public ResponseEntity<User> getUser(@AuthenticationPrincipal User user) {
-        return new ResponseEntity<>(user, HttpStatus.OK);
+    public ResponseEntity<UserInfoDTO> userInfo(@AuthenticationPrincipal User user) {
+        return new ResponseEntity<>(new UserInfoDTO(user), HttpStatus.OK);
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public ResponseEntity<?> addUser(@RequestBody User user) {
+    public ResponseEntity<?> signUp(@RequestBody SignUpDTO user) {
         userService.save(user);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
