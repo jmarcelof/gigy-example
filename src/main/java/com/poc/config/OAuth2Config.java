@@ -1,9 +1,7 @@
 package com.poc.config;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.beans.factory.annotation.*;
+import org.springframework.context.annotation.*;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -11,10 +9,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
-import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
-import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
-import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
-import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurerAdapter;
+import org.springframework.security.oauth2.config.annotation.web.configuration.*;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
 
 import javax.sql.DataSource;
@@ -63,9 +58,9 @@ public class OAuth2Config {
                 .requestMatchers().antMatchers("/user", "/**")
             .and()
                 .authorizeRequests()
-                    .antMatchers(HttpMethod.GET, "/user").access("hasRole('ROLE_USER')")
-                    .antMatchers("/user").access("hasRole('ROLE_SIGNUP')")
-                    .antMatchers("/**").access("hasRole('ROLE_USER')");
+                    .antMatchers(HttpMethod.POST, "/user").access("hasRole('ROLE_SIGNUP') or hasRole('ROLE_ADMIN')")
+                    .antMatchers("/user/all").access("hasRole('ROLE_ADMIN')")
+                    .antMatchers("/**").access("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')");
         }
     }
 }
