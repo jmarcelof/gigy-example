@@ -40,4 +40,10 @@ public class UserController {
         userService.save(user);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
+
+    @RequestMapping(value = "/{userId}", method = RequestMethod.DELETE)
+    public ResponseEntity<?> delete(@PathVariable Long userId) {
+        userService.remove(userId);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 }

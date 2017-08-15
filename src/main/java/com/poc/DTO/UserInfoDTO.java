@@ -11,6 +11,10 @@ public class UserInfoDTO {
         this.user = user;
     }
 
+    public Long getId() {
+        return user.getId();
+    }
+
     public String getUsername() {
         return user.getUsername();
     }
